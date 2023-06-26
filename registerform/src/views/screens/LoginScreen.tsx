@@ -3,7 +3,11 @@ import React from "react";
 import {SafeAreaView} from 'react-native';
 import COLORS from "../../conts/colors";
 
-export const LoginScreen=({})=>{
+interface LoginScreenProps{
+  navigation:any;
+}
+
+export const LoginScreen:React.FC<LoginScreenProps> = ({navigation}) => {
     return(
       <SafeAreaView>
 
