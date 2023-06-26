@@ -9,7 +9,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Stack = createNativeStackNavigator();
 
-const App=()=>{
+function App(): JSX.Element {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown:false}}>
@@ -24,3 +24,5 @@ const App=()=>{
     </NavigationContainer>
   );
 };
+
+export default App;
