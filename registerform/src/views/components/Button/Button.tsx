@@ -9,7 +9,9 @@ interface ButtonProps{
 
 export const Button: React.FC<ButtonProps>=({title, onPress})=>{
     return(
-       <TouchableOpacity onPress={onPress} style={styles.button}>
+       <TouchableOpacity
+       activeOpacity={0.7}
+        onPress={onPress} style={styles.button}>
         <Text style={styles.buttonTitle}>
         {title}
         </Text>

@@ -3,17 +3,17 @@ import {Text, View, TextInput} from 'react-native';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import COLORS from '../../../conts/colors';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+
 
 interface InputProps {
   label: string;
   iconName: string;
   placeholder: string;
-  error?: string;
-  password?: boolean;
+  error?: any;
+  password?: any;
   onFocus?: () => void;
-
-
+  keyboardType?: any;
+  onChangeText:any;
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -23,6 +23,8 @@ export const Input: React.FC<InputProps> = ({
   password,
   onFocus,
   placeholder,
+  keyboardType,
+  onChangeText,
   ...props
 }) => {
 
@@ -52,7 +54,9 @@ const handleBlur=()=>{
           style={{fontSize: 22, color: COLORS.darkBlue, marginRight: 10}}
         />
         <TextInput
-       secureTextEntry={hidePassword}
+          onChangeText={onChangeText}
+          keyboardType={keyboardType}
+          secureTextEntry={hidePassword}
           placeholder={placeholder}
           autoCorrect={false}
           onFocus={handleonFocus}
