@@ -5,6 +5,7 @@ import COLORS from '../../conts/colors';
 import {Input} from '../components/input/input';
 import {Button} from '../components/Button/Button';
 import { Keyboard } from 'react-native';
+import { Loader } from '../components/Loader/Loader';
 
 
 interface RegistrationScreenProps{
@@ -28,6 +29,7 @@ export const RegistrationScreen:React.FC<RegistrationScreenProps> = ({navigation
         password?:any;
     }
     const [errors, setErrors]=React.useState<FormErrors>({});
+    const[loading, setLoading]=React.useState(false);
 
     const validate=()=>{
         Keyboard.dismiss();
@@ -55,6 +57,8 @@ export const RegistrationScreen:React.FC<RegistrationScreenProps> = ({navigation
 
         if(valid){
             register();
+            setLoading(true);
+
         }
     };
 
@@ -71,6 +75,7 @@ export const RegistrationScreen:React.FC<RegistrationScreenProps> = ({navigation
 
   return (
     <SafeAreaView style={{backgroundColor: COLORS.white, flex: 1}}>
+        <Loader visible={loading}/>
       <ScrollView
         contentContainerStyle={{
           paddingTop: 50,
