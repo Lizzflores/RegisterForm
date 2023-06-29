@@ -37,7 +37,9 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
 
   const validate = async () => {
     Keyboard.dismiss();
+
     let valid = true;
+
     if (!inputs.email) {
       handleError('Please input email', 'email');
       valid = false;
@@ -87,6 +89,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
       }
     }, 2000);
   };
+
   const handleOnChange = (text: string, input: string) => {
     setInputs(prevState => ({...prevState, [input]: text}));
   };

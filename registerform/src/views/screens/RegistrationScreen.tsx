@@ -78,7 +78,6 @@ export const RegistrationScreen: React.FC<RegistrationScreenProps> = ({
 
       try {
         AsyncStorage.setItem('userData', JSON.stringify(inputs));
-        console.log('User registered:', inputs);
         navigation.navigate('LoginScreen');
       } catch (error) {
         Alert.alert('Error', 'Something went wrong');
