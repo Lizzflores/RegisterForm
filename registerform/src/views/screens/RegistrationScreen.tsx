@@ -77,13 +77,13 @@ export const RegistrationScreen: React.FC<RegistrationScreenProps> = ({
       setLoading(false);
 
       try {
-        AsyncStorage.setItem("userData", JSON.stringify(inputs));
-        console.log("User registered:", inputs);
+        AsyncStorage.setItem('userData', JSON.stringify(inputs));
+        console.log('User registered:', inputs);
         navigation.navigate('LoginScreen');
       } catch (error) {
         Alert.alert('Error', 'Something went wrong');
       }
-    }, 3000);
+    }, 2000);
   };
   const handleOnChange = (text: string, input: string) => {
     setInputs(prevState => ({...prevState, [input]: text}));

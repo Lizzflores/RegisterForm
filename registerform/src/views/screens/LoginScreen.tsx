@@ -25,7 +25,7 @@ interface Inputs {
 export const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
   const [inputs, setInputs] = React.useState<Inputs>({
     email: '',
-    password: ''
+    password: '',
   });
 
   interface FormErrors {
@@ -71,18 +71,19 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
           inputs.email === parsedUserData.email &&
           inputs.password === parsedUserData.password
         ) {
-
-           AsyncStorage.setItem(
+          AsyncStorage.setItem(
             'userData',
             JSON.stringify({...parsedUserData, loggedIn: true}),
-
           );
           navigation.navigate('HomeScreen');
         } else {
           Alert.alert('Error', 'Invalid Details');
         }
       } else {
-        Alert.alert('Error', 'User does not exist');
+        Alert.alert(
+          'Error',
+          'User does not exist please register before login',
+        );
       }
     }, 2000);
   };
@@ -146,4 +147,4 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({navigation}) => {
       </ScrollView>
     </SafeAreaView>
   );
-}
+};
